@@ -8,3 +8,17 @@
 
 ### How Did I solved it?
 - Could not find a way to break out in for each, so changed the code for for in.
+
+
+# Letting Users delete posts and update Posts
+
+## How will we let users delete posts?
+- When users login to the admin panel, and then they go to the posts, they get an option to delete and update posts.
+
+### How will we know, which post to delete? How can we get an index for the post we want to CRUD.
+
+
+
+
+
+

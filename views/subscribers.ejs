@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<ul class="admin-options">
+    
+</ul>
+<table class="subscribers-list">
+    <h3>Subscribers</h3>
+    <ol>
+        <% list.forEach((emails)=> { %>
+            <li><%= emails.email %> </li>
+       <%  }) %> 
+    </ol>

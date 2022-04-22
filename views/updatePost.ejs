@@ -1,0 +1,4 @@
+<%- include('partials/header') %>
+<% posts.forEach(function(allPosts){ %>
+    <li><a href="/posts/<%=allPosts.title%>"><%= allPosts.title %> </a></li>
+<% }) %>  

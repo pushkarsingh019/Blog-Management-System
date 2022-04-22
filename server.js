@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 3030;
+const PORT = 3000;
 
-mongoose.connect("mongodb://localhost/blog");
+mongoose.connect("mongodb+srv://pushkarsingh019:Mf0tOLDoDLORWVk5@cluster0.sd4ew.mongodb.net/Blog")
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended : false}));
+app.use(express.static(__dirname));
+
 
 // Global Variabbles
 let postTitleCounter = 0;
@@ -38,8 +40,10 @@ const Subscriber = mongoose.model("subsriber", subscriberSchema);
 const Post = mongoose.model("post", postSchema);
 
 
-
-
+// Authentication Function
+const userName = "pushkarsingh019";
+const password = "72087";
+let authFlag = 1;
 
 
 // Get routes
@@ -57,8 +61,62 @@ app.get('/', function(req,res){
 })
 
 app.get('/newpost', function(req, res){
-    res.render('newpost');
+    if(authFlag == 1){
+        res.render('newpost');
+    }
+    else{
+        res.render('login');
+    }
 })
+
+// app.get('/admin', function(req, res){
+
+//     Subscriber.find({}, (err, list) => {
+//         if(err){
+//             console.log(err)
+//         }
+//         else{
+//             res.render('admin', {list : list});
+//         }
+//     })
+// })
+
+app.get('/admin', function(req, res){
+    if(authFlag === 1){
+        res.render('admin');
+    }
+    else{
+        res.render('login')
+    }
+})
+
+app.get('/admin/:adminUrl', function(req, res){
+    let adminChoice = req.params.adminUrl;
+
+    if(adminChoice == "subscribers"){
+        Subscriber.find({}, function(err, list){
+            if(err){
+                console.log(err)
+            }
+            else{
+                res.render('subscribers', {list : list })
+            }
+        })
+    }
+
+    else if(adminChoice == "updatePost"){
+        Post.find({}, function(err, posts){
+            if(err){
+                console.log(err)
+            }
+            else{
+                res.render('updatePost', {posts : posts});
+            }
+        })
+    }
+})
+
+
 
 
 app.listen(PORT, () => {
@@ -96,7 +154,7 @@ app.get('/posts/:premalink', function(req, res){
             }
 
             if(postTitleCounter === 1){
-                res.render('post', {sendTitle : sendTitle , sendPost : sendPost});
+                res.render('post', {sendTitle : sendTitle , sendPost : sendPost, authFlag : authFlag});
             }
             else{
                 res.render('404');
@@ -148,7 +206,7 @@ app.post("/subscribe", function(req,res){
     emailId.save();
 
 
-    res.render('home');
+    res.redirect('/');
 })
 
 app.post('/newpost', function(req, res){
@@ -163,6 +221,29 @@ app.post('/newpost', function(req, res){
     console.log("Post Title -> " +obj1.postLabel)
 
     newPost.save();
-
     res.redirect('/');
 })
+
+app.post('/login', function(req, res){
+    if(req.body.username == "pushkarsingh019" && req.body.password == "72087"){
+        authFlag = 1;
+        res.redirect('admin');
+    }
+    else{
+        authFlag = 0;
+        res.send("Authentication Failed");
+    }
+})
+
+app.post('/do-delete', (req, res)=>{
+    let obj2 = JSON.parse(JSON.stringify(req.body));
+    let deleteTitle = obj2.deletePostTitle;
+
+    Post.deleteOne({ title : deleteTitle}).then(function(){
+        res.redirect('/');
+    }).catch(function(){
+        console.log(err);
+    });
+})
+
+

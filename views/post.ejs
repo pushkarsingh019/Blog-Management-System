@@ -1,5 +1,20 @@
 <%- include('partials/header') %>
-<h2><%= sendTitle %> </h2>
-<p>
+<div class="post-page-content">
+    <h2 class="post-title"><%= sendTitle %> </h2>
+<p class="post-text">
     <%= sendPost %> 
 </p>
+</div>
+<br>
+<% if(authFlag == 1){ %>
+    <div class="admin-options">
+        <h3>Admin Options</h3>
+        <br>
+        <form action="/do-delete" method="post">
+        <input class="admin-title" type="text" name="deletePostTitle" readonly value="<%= sendTitle%>" />
+        <!-- <button type="submit">Edit Post</button> -->
+        <button class="delete-button" type="submit">Delete Post</button>
+        </form>
+    </div>
+<% } %>
+

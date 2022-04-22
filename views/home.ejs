@@ -1,11 +1,17 @@
 <%- include('partials/header') %> 
 <%- include('hero') %> 
-<h3>Posts</h3>
-<% foundPosts.forEach(function(blogs){ %>
-    <h3> <%= blogs.title %> </h3>
+<div class="home-content">
+    <h3>Posts</h3>
+    <div class="posts">
+    <% foundPosts.forEach(function(blogs){ %>
+        <div class="post">
+            <h3> <%= blogs.title %> </h3>
     <p>
         <%= blogs.post.slice(0,30) %>...
         <a href="/posts/<%= blogs.title %>">read more</a> 
     </p>
-<% }) %> 
+        </div>
+    <% }) %> 
+    </div>
+</div> 
 

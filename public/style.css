@@ -1,0 +1,135 @@
+/* Importing Fonts and Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    /* border: 2px red solid; */
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color : #71C9CE;
+    --secondary-color : #A6E3E9;
+    --third-color : #CBF1F5;
+    --fourth-color : #E3FDFD;
+    --link-color : #0F4C75;
+}
+
+/* Navbar Styling */
+.navbar{
+    background-color: var(--secondary-color);
+    /* color: whitesmoke; */
+    padding: 15px;
+    border-bottom-right-radius: 35px;
+    color: #2D4059;
+}
+.navbar-list {
+    margin-top: 15px;
+    display: inline-block;
+}
+.nav-item{
+    margin: 0px 5px 0px 5px;
+    display: inline-block;
+}
+.nav-link {
+    text-decoration: none;
+    color: var(--link-color)
+}
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section{
+    margin: 30px 0px;
+    display: inline-block;
+    padding: 10px 5px;
+}
+.hero-image{
+    height: 300px;
+}
+.hero-content {
+    margin: 35px 0px 0px 0px;
+}
+.hero-subtext {
+    margin: 10px 0px;
+    padding: 5px 10px;
+}
+
+/* CTA section */
+.cta-section{
+    background-color: var(--third-color);
+    padding: 30px 18px;
+}
+.secondary-input{
+    width: 25%;
+    padding: 5px 8px;
+}
+.primary-button{
+    margin: 20px 0px 0px 10px;
+    padding: 9px 12px;
+    background-color: var(--link-color);
+    color: var(--fourth-color);
+    border-radius: 12px;
+    border: solid;
+}
+
+
+/* Home-Section */
+.home-content{
+    padding: 25px 0px 0px 0px;
+}
+.posts{
+    margin: 15px 0px 100px 0px;
+}
+.post{
+    margin: 12px 35px;
+    padding: 12px 8px;
+    /* width: 50%; */
+    border-radius: 16px;
+}
+
+/* Footer */
+.footer{
+    background-color: var(--secondary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Post Display Page */
+.post-page-content{
+    margin: 10px 0px;
+    padding: 25px 38px;
+}
+.post-page-content .post-title, .post-text{
+    text-align: left;
+}
+.post-text{
+    margin: 10px 0px;
+}
+
+
+/* Admin Options */
+.admin-title{
+    padding: 5px 10px;
+    border: 0px white solid;
+}
+.delete-button{
+    background-color: white;
+    padding: 10px;
+    /* color: whitesmoke; */
+    border-radius: 12px;
+    border: 1px red solid;
+}
+.delete-button:hover{
+    background-color: red;
+    color: whitesmoke;
+}

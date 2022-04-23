@@ -5,7 +5,10 @@ const bodyParser = require("body-parser");
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+let PORT = process.env.PORT;
+if(PORT == null || PORT == ""){
+    PORT = 3000;
+}
 
 mongoose.connect(process.env.MONGODB_URL); // Add mongodb url instead of this environment variable
 

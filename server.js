@@ -15,6 +15,7 @@ app.use(express.static(__dirname));
 
 // Global Variabbles
 let postTitleCounter = 0;
+let editTitle = "";
 
 // MongoDb Schemas
 
@@ -43,7 +44,7 @@ const Post = mongoose.model("post", postSchema);
 // Authentication Function
 const userName = "pushkarsingh019";
 const password = "72087";
-let authFlag = 0;
+let authFlag = 1;
 
 
 // Get routes
@@ -117,7 +118,7 @@ app.get('/admin/:adminUrl', function(req, res){
                 console.log(err)
             }
             else{
-                res.render('updatePost', {posts : posts});
+                res.render('deletePost', {posts : posts});
             }
         })
     }
@@ -251,6 +252,37 @@ app.post('/do-delete', (req, res)=>{
     }).catch(function(){
         console.log(err);
     });
+})
+
+app.post('/editPost', function(req, res){
+    let obj3 = JSON.parse(JSON.stringify(req.body));
+
+    editTitle = req.body.editPostTitle;
+
+    console.log(editTitle);
+
+    Post.findOne({title : editTitle}, function(err, blogs){
+        if(err){
+            console.log(err)
+        }
+        else{
+            res.render('updatePost', {blogs : blogs});
+        }
+    })
+})
+
+app.post('/updateBlog', function(req, res){
+    let obj4 = JSON.parse(JSON.stringify(req.body));
+
+    let updatedTitle = obj4.updatedBlogTitle;
+    let updatedPost = obj4.updatedBlogText;
+    let updatedTags = obj4.updatedBlogTags;
+
+    Post.updateOne({title : editTitle}, {title : updatedTitle, post : updatedPost, tags : updatedTags}).then(function(){
+        res.redirect('/')
+    }).catch(function(){
+        console.log(err)
+    })
 })
 
 

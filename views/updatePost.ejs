@@ -1,9 +1,16 @@
 <%- include('partials/header') %>
-<div class="container">
-    <h2>Select the post you want to delete</h2>
-    <div class="postLinks">
-        <% posts.forEach(function(allPosts){ %>
-            <li class="post-list"><a class="post-list-links" href="/posts/<%=allPosts.title%>"><%= allPosts.title %> </a></li>
-        <% }) %>
-    </div>  
-</div>
+<div class="newpost-section">
+    <div class="new-post">
+        <form action="/updateBlog" method="post">
+        <input autocomplete="off" type="text" 
+        value="<%= blogs.title %>"
+        name="updatedBlogTitle" class="primary-input" />
+        <br>
+        <textarea name="updatedBlogText" id="" cols="30" rows="10" class="blog-input"><%= blogs.post %> </textarea>
+        <br>
+        <input type="text" name="updatedBlogTags" value="<%= blogs.tags %>" class="third-input">
+        <br>
+        <button class="cta-button" type="submit">Update Post</button>
+        </form>
+    </div>
+</div> 

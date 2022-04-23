@@ -2,11 +2,12 @@ const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
 
-mongoose.connect("mongodb+srv://pushkarsingh019:Mf0tOLDoDLORWVk5@cluster0.sd4ew.mongodb.net/Blog")
+mongoose.connect(process.env.MONGODB_URL); // Add mongodb url instead of this environment variable
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended : false}));
@@ -44,7 +45,7 @@ const Post = mongoose.model("post", postSchema);
 // Authentication Function
 const userName = "pushkarsingh019";
 const password = "72087";
-let authFlag = 1;
+let authFlag = 0;
 
 
 // Get routes

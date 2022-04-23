@@ -1,15 +1,17 @@
 <%- include('partials/header') %>
-<h3>Create a new post</h3> 
-<div class="new-post">
-    <form action="/newpost" method="post">
-    <label for="">Post Title</label>
+<div class="newpost-section">
+    <!-- <h2 class="section-header">Create a new post</h3>  -->
+    <div class="new-post">
+    <form class="newpost-form" action="/newpost" method="post">
+    <!-- <label for="">Post Title</label> -->
     <br>
-    <input type="text" name="postLabel" placeholder="Enter Post Title Here">
+    <input autocomplete="off" class="primary-input" type="text" name="postLabel" placeholder="Enter Post Title Here">
     <br>
-    <textarea name="postText" id="" cols="30" rows="10" placeholder="Type your post here..."></textarea>
+    <textarea class="blog-input" name="postText" id="" cols="30" rows="10" placeholder="Type your post here..."></textarea>
     <br>
-    <input type="text" name="postTags" placeholder="Enter post tags">
+    <input class="third-input" type="text" name="postTags" placeholder="Enter post tags">
     <br>
-    <button type="submit">Post</button>
+    <button autocomplete="off" class="cta-button" type="submit">Post</button>
     </form>
+   </div>
 </div>

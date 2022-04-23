@@ -1,8 +1,15 @@
-<h3>Login to access Admin Panel</h3>
+<%- include('partials/header') %> 
+
+<div class="container">
+    <h3>Login to access Admin Panel</h3>
+    <br>
+    <br>
+
 <form action="/login" method="post">
-    <input type="text" name="username" placeholder="Enter Username">
+    <input class="secondary-input login" type="text" name="username" placeholder="Enter Username">
     <br>
-    <input type="password" name="password" id="" placeholder="Enter Password" />
+    <input class="secondary-input login" type="password" name="password" id="" placeholder="Enter Password" />
     <br>
-    <button type="submit">Log in</button>
+    <button type="submit" class="cta-button login login-button">Log in</button>
 </form>
+</div>

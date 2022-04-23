@@ -1,6 +1,10 @@
-
-<ul>
-    <li><a href="/admin/subscribers">Subscribers List</a></li>
-    <li><a href="/admin/updatePost">Update and Delete Posts</a></li>
-    <li><a href="/newpost">New Post</a></li>
-</ul> 
+<%- include('partials/header') %> 
+<div class="admin-section">
+    <h2 class="admin-section-header">What do you want to do?</h2>
+    <ul class="admin-list">
+        <li class="admin-list-items"><a 
+        class="admin-links"    href="/admin/subscribers">See Subscribers</a></li>
+        <li class="admin-list-items"><a class="admin-links" href="/admin/updatePost">Update and Delete Posts</a></li>
+        <li class="admin-list-items"><a class="admin-links" href="/newpost">New Post</a></li>
+    </ul> 
+</div>

@@ -15,6 +15,11 @@
         <!-- <button type="submit">Edit Post</button> -->
         <button class="delete-button" type="submit">Delete Post</button>
         </form>
+        <br>
+        <form action="/updatePost" method="post">
+            <input type="text" class="admin-title" value="<%= sendTitle %> readonly "  />
+            <button class="edit-button" type="submit">Edit Post</button>
+        </form>
     </div>
 <% } %>
 

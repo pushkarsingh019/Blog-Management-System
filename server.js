@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const app = express();
-// const PORT = 3000;
+const PORT = 3000;
 
 mongoose.connect("mongodb+srv://pushkarsingh019:Mf0tOLDoDLORWVk5@cluster0.sd4ew.mongodb.net/Blog")
 
@@ -43,7 +43,7 @@ const Post = mongoose.model("post", postSchema);
 // Authentication Function
 const userName = "pushkarsingh019";
 const password = "72087";
-let authFlag = 1;
+let authFlag = 0;
 
 
 // Get routes
@@ -58,6 +58,13 @@ app.get('/', function(req,res){
             res.render('Home', {foundPosts : foundPosts});
         }
     })
+})
+
+app.get('/about', (req, res)=>{
+    res.render('about');
+})
+app.get('/contact', (req, res)=>{
+    res.render('contact');
 })
 
 app.get('/newpost', function(req, res){

@@ -1,4 +1,9 @@
 <%- include('partials/header') %>
-<% posts.forEach(function(allPosts){ %>
-    <li><a href="/posts/<%=allPosts.title%>"><%= allPosts.title %> </a></li>
-<% }) %>  
+<div class="container">
+    <h2>Select the post you want to delete</h2>
+    <div class="postLinks">
+        <% posts.forEach(function(allPosts){ %>
+            <li class="post-list"><a class="post-list-links" href="/posts/<%=allPosts.title%>"><%= allPosts.title %> </a></li>
+        <% }) %>
+    </div>  
+</div>

@@ -3,15 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "engines" : {
     "node": "16.13.2"
-  },
-  "scripts" : {
-    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.26.1",

@@ -60,7 +60,7 @@ app.get('/', function(req,res){
             console.log(err)
         }
         else{
-            res.render('Home', {foundPosts : foundPosts});
+            res.render('home', {foundPosts : foundPosts});
         }
     })
 })

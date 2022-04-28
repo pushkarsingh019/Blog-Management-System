@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 require('dotenv').config();
 
 const app = express();
+console.log("Hi Yashi!")
 let PORT = process.env.PORT;
 if(PORT == null || PORT == ""){
     PORT = 3000;

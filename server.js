@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 require('dotenv').config();
 
 const app = express();
-console.log("Hi Yashi!")
 let PORT = process.env.PORT;
 if(PORT == null || PORT == ""){
     PORT = 3000;
@@ -47,8 +46,8 @@ const Post = mongoose.model("post", postSchema);
 
 
 // Authentication Function
-const userName = "pushkarsingh019";
-const password = "72087";
+const userName = process.env.USERNAME;
+const password = process.env.PASSWORD;
 let authFlag = 0;
 
 

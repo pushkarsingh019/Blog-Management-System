@@ -38,7 +38,7 @@ button:focus {
 .navbar{
     background-color: var(--secondary-color);
     /* color: whitesmoke; */
-    /* padding: 15px; */
+    padding: 15px 0px;
     border-bottom-right-radius: 35px;
     color: #2D4059;
 }
